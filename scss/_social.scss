@@ -1,0 +1,23 @@
+.social-links {
+  display: block;
+  position: absolute;
+  top: $margin;
+  right: $margin;
+  li {
+    display: inline-block;
+    a {
+      display:block;
+      width:65px;
+      height:65px;
+      text-indent:-99999px;
+    }
+  }
+}
+
+$icons:(twitter, facebook, youtube, rss);
+
+@each $social in $icons {
+  .#{$social} {
+    background: url('../images/#{$social}.png') no-repeat;
+  }
+}

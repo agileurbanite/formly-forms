@@ -1,0 +1,12 @@
+header {
+  display: block;
+  padding: 20px 0 20px $margin;
+  background-color: #fff;
+  h1 {
+    color: $dark;
+  }
+  h2 {
+    color: $dark;
+    margin: 10px $margin + 5%;
+  }
+}

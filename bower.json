@@ -1,0 +1,32 @@
+{
+  "name": "PolymorphicForms",
+  "main": [
+    "app/index.js"
+  ],
+  "dependencies": {
+    "angular": "https://github.kdc.capitalone.com/bower-dependencies/angular.git#1.3.14",
+    "angular-animate": "https://github.kdc.capitalone.com/bower-dependencies/angular-animate.git#1.3.14",
+    "angular-ui-router": "https://github.kdc.capitalone.com/bower-dependencies/angular-ui-router.git#0.2.13",
+    "angular-mocks": "https://github.kdc.capitalone.com/bower-dependencies/angular-mocks.git#1.3.14",
+    "ngstorage": "https://github.kdc.capitalone.com/bower-dependencies/ngstorage.git#0.3.0",
+    "restangular": "https://github.kdc.capitalone.com/bower-dependencies/restangular.git#1.4.0",
+    "jquery": "https://github.kdc.capitalone.com/bower-dependencies/jquery.git#2.1.3",
+    "lodash": "https://github.kdc.capitalone.com/bower-dependencies/lodash.git#3.10.1",
+    "requirejs": "https://github.kdc.capitalone.com/bower-dependencies/requirejs.git#2.1.17",
+    "requirejs-domready": "https://github.kdc.capitalone.com/bower-dependencies/requirejs-domready.git#2.0.1",
+    "requirejs-plugins": "https://github.kdc.capitalone.com/bower-dependencies/requirejs-plugins.git#1.0.3",
+    "requirejs-text": "https://github.kdc.capitalone.com/bower-dependencies/requirejs-text.git#2.0.14",
+    "ocLazyLoad": "https://github.kdc.capitalone.com/bower-dependencies/ocLazyLoad.git#0.6.3",
+    "numeral-js": "https://github.kdc.capitalone.com/bower-dependencies/numeral-js.git#1.5.3",
+    "angular-aria": "https://github.kdc.capitalone.com/bower-dependencies/angular-aria.git#1.4.0",
+    "hammer":"https://github.kdc.capitalone.com/bower-dependencies/hammerjs.git#2.0.4",
+    "angular-pdf-viewer": "https://github.kdc.capitalone.com/bower-dependencies/angular-pdf-viewer.git#0.2.6",
+    "pdfjs-dist": "https://github.kdc.capitalone.com/bower-dependencies/pdfjs-dist.git#1.1.191",
+    "ui-router-extras": "https://github.kdc.capitalone.com/bower-dependencies/ui-router-extras.git#0.0.13",
+    "api-check": "https://github.kdc.capitalone.com/bower-dependencies/api-check.git#7.5.0",
+    "angular-formly": "https://github.kdc.capitalone.com/bower-dependencies/angular-formly.git#6.16.1",
+    "angular-formly-templates-bootstrap": "https://github.kdc.capitalone.com/bower-dependencies/angular-formly-templates-bootstrap.git#4.4.0",
+    "angular-sanitize": "https://github.kdc.capitalone.com/bower-dependencies/angular-sanitize.git#1.3.14",
+    "angular-google-maps" : "https://github.kdc.capitalone.com/bower-dependencies/angular-google-maps.git#2.1.5"
+  }
+}

@@ -1,0 +1,16 @@
+body {
+  font-family: helvetica, ariel, sans-serif;
+  color: black;
+}
+
+p {
+  margin: 20px $margin;
+}
+
+a {
+  color: $blue - 100;
+}
+
+ul {
+  list-style: none;
+}

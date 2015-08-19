@@ -1,0 +1,28 @@
+.intro {
+  // @include border-radius(10px);
+  // @include background-image(linear-gradient($cream, $cream2));
+  display: block;
+  padding: 5px;
+  .col {
+    margin: 0;
+    padding: 10px;
+  }
+}
+
+.feature {
+  @extend .intro;
+  color: black;
+  background: none;
+  ul {
+    list-style: none;
+    li {
+      display: block;
+      padding: 5px;
+      border-bottom: 1px solid $dark;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}

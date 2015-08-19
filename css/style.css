@@ -1,0 +1,87 @@
+body {
+  font-family: helvetica, ariel, sans-serif;
+  color: black;
+}
+
+p {
+  margin: 20px 5%;
+}
+
+a {
+  color: #00009b;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  display: block;
+  padding: 20px 0 20px 5%;
+  background-color: #fff;
+}
+header h1 {
+  color: #333;
+}
+header h2 {
+  color: #333;
+  margin: 10px 10%;
+}
+
+.social-links {
+  display: block;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.social-links li {
+  display: inline-block;
+}
+.social-links li a {
+  display: block;
+  width: 65px;
+  height: 65px;
+  text-indent: -99999px;
+}
+
+.twitter {
+  background: url("../images/twitter.png") no-repeat;
+}
+
+.facebook {
+  background: url("../images/facebook.png") no-repeat;
+}
+
+.youtube {
+  background: url("../images/youtube.png") no-repeat;
+}
+
+.rss {
+  background: url("../images/rss.png") no-repeat;
+}
+
+.intro, .feature {
+  display: block;
+  padding: 5px;
+}
+.intro .col, .feature .col {
+  margin: 0;
+  padding: 10px;
+}
+
+.feature {
+  color: black;
+  background: none;
+}
+.feature ul {
+  list-style: none;
+}
+.feature ul li {
+  display: block;
+  padding: 5px;
+  border-bottom: 1px solid #333;
+}
+.feature ul li a {
+  text-decoration: none;
+  color: black;
+}

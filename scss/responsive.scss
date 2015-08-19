@@ -1,0 +1,115 @@
+@import "compass";
+@import "susy";
+// @import "breakpoint";
+
+$susy: (
+  columns: 12,
+  gutters: 1/4,
+  math: fluid,
+  output: float,
+  gutter-position: inside
+);
+
+// $widelayout: (
+//   columns: 24
+// );
+
+// variables
+// @import "_base";
+$blue: #0000ff;
+$margin: 5%;
+$cream: #F2EFEB;
+$cream2: $cream - 100;
+$dark: #333;
+
+// @import "_global";
+body {
+  font-family: helvetica, ariel, sans-serif;
+  color: black;
+  // @include container(60em);
+}
+
+p {
+  margin: 20px $margin;
+}
+
+a {
+  color: $blue - 100;
+}
+
+ul {
+  list-style: none;
+}
+
+// @import "_header";
+header {
+  display: block;
+  padding: 20px 0 20px $margin;
+  background-color: #fff;
+  h1 {
+    color: $dark;
+  }
+  h2 {
+    color: $dark;
+    margin: 10px $margin + 5%;
+  }
+}
+
+// @import "_social";
+.social-links {
+  display: block;
+  position: absolute;
+  top: $margin;
+  right: $margin;
+  li {
+    display: inline-block;
+    a {
+      display:block;
+      float:left;
+      width:65px;
+      height:65px;
+      text-indent:-99999px;
+    }
+  }
+}
+
+$icons:(twitter,facebook,youtube,rss);
+
+@each $social in $icons {
+  .#{$social} {
+    background: url('../images/#{$social}.png') no-repeat;
+  }
+}
+
+// @import "_main";
+.intro {
+  @include border-radius(10px);
+  @include background-image(linear-gradient($cream, $cream2));
+  display: block;
+  padding: 5px;
+  @include span(3);
+  .col {
+    margin: 0;
+    padding: 10px;
+    // @include span(4 of 12);
+  }
+}
+
+.feature {
+  @extend .intro;
+  color: black;
+  background: none;
+  @include span(9 at 4);
+  ul {
+    list-style: none;
+    li {
+      display: block;
+      padding: 5px;
+      border-bottom: 1px solid $dark;
+      a {
+        text-decoration: none;
+        color: black;
+      }
+    }
+  }
+}

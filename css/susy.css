@@ -1,0 +1,97 @@
+body {
+  font-family: helvetica, ariel, sans-serif;
+  color: black;
+}
+
+p {
+  margin: 20px 5%;
+}
+
+a {
+  color: #00009b;
+}
+
+ul {
+  list-style: none;
+}
+
+header {
+  display: block;
+  padding: 20px 0 20px 5%;
+  background-color: #fff;
+}
+header h1 {
+  color: #333;
+}
+header h2 {
+  color: #333;
+  margin: 10px 10%;
+}
+
+.social-links {
+  display: block;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+.social-links li {
+  display: inline-block;
+}
+.social-links li a {
+  display: block;
+  float: left;
+  width: 65px;
+  height: 65px;
+  text-indent: -99999px;
+}
+
+.twitter {
+  background: url("../images/twitter.png") no-repeat;
+}
+
+.facebook {
+  background: url("../images/facebook.png") no-repeat;
+}
+
+.youtube {
+  background: url("../images/youtube.png") no-repeat;
+}
+
+.rss {
+  background: url("../images/rss.png") no-repeat;
+}
+
+.intro, .feature {
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiBncmFkaWVudFVuaXRzPSJvYmplY3RCb3VuZGluZ0JveCIgeDE9IjAuNSIgeTE9IjAuMCIgeDI9IjAuNSIgeTI9IjEuMCI+PHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyZWZlYiIvPjxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzhlOGI4NyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JhZCkiIC8+PC9zdmc+IA==');
+  background-size: 100%;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f2efeb), color-stop(100%, #8e8b87));
+  background-image: -moz-linear-gradient(#f2efeb, #8e8b87);
+  background-image: -webkit-linear-gradient(#f2efeb, #8e8b87);
+  background-image: linear-gradient(#f2efeb, #8e8b87);
+  display: block;
+  padding: 5px;
+}
+.intro .col, .feature .col {
+  margin: 0;
+  padding: 10px;
+}
+
+.feature {
+  color: black;
+  background: none;
+}
+.feature ul {
+  list-style: none;
+}
+.feature ul li {
+  display: block;
+  padding: 5px;
+  border-bottom: 1px solid #333;
+}
+.feature ul li a {
+  text-decoration: none;
+  color: black;
+}
