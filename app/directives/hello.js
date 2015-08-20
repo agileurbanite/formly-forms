@@ -1,5 +1,5 @@
 export default ngModule => {
-  ngModule.directive('hello', function() {
+  ngModule.directive('hello', () => {
     return {
       restrict: 'E',
       scope: {},
@@ -10,5 +10,5 @@ export default ngModule => {
         vm.greeting = 'Hello webpack';
       }
     }
-  })
+  });
 }

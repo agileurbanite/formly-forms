@@ -27,6 +27,7 @@
     "gulp-watch": "^3.0.0",
     "jshint": "^2.6.3",
     "jshint-loader": "^0.8.3",
+    "lodash": "^3.10.1",
     "nib": "^1.1.0",
     "oclazyload": "^1.0.4",
     "raw-loader": "^0.5.1",

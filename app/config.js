@@ -1,55 +1,89 @@
 export default (ngModule, Angular) => {
-  ngModule.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
+  ngModule.config(['$stateProvider', '$locationProvider', '$urlRouterProvider',
+    function($stateProvider, $locationProvider, $urlRouterProvider) {
     //$locationProvider.html5Mode(true);
-    $locationProvider.hashPrefix('!');
+    // $locationProvider.hashPrefix('!');
 
     $urlRouterProvider.otherwise('/');
 
-    // $stateProvider.state('page1', {
-    //   url: '/page1',
-    //   template: require('./page1.html'),
-    //   controller: function () {
-    //     this.title = 'This is page 1';
-    //   },
-    //   controllerAs: 'test'
-    // }).state('page2', {
-    //   url: '/page2',
-    //   template: require('./page2.html'),
-    //   controller: function () {
-    //     this.title = 'This is page 2';
-    //   },
-    //   controllerAs: 'test'
-    // }).state('page3', {
-    //   url: '/page3',
-    //   template: require('./page3.html'),
-    //   controller: 'Page3Controller',
-    //   controllerAs: 'test'
-    // }).state('page4', {
-    //   url: '/page4',
-    //   templateProvider: ['$q', function ($q) {
-    //     let deferred = $q.defer();
-    //     require.ensure(['./page4.html'], function () {
-    //       let template = require('./page4.html');
-    //       deferred.resolve(template);
-    //     });
-    //     return deferred.promise;
-    //   }],
-    //   controller: 'Page4Controller',
-    //   controllerAs: 'test',
-    //   resolve: {
-    //     foo: ['$q', '$ocLazyLoad', function ($q, $ocLazyLoad) {
-    //       let deferred = $q.defer();
-    //       require.ensure([], function () {
-    //         let module = require('./page4Module.js')(Angular);
-    //         $ocLazyLoad.load({
-    //           name: 'page4App'
-    //         });
-    //         deferred.resolve(module);
-    //       });
-
-    //       return deferred.promise;
-    //     }]
-    //   }
-    // });
+    $stateProvider.state('default', {
+      url: '/',
+      template: require('./default/default.html'),
+      controller: function() {
+        let vm = this;
+        angular.extend(vm, {
+          user: {
+            email: '',
+            password: '',
+            checked: false
+          },
+          title: 'This is the default way to do forms',
+          submit: function() {
+            alert(JSON.stringify(vm.user));
+          }
+        });
+      },
+      controllerAs: 'default'
+    }).state('formlyDefault', {
+      url: '/formly-default',
+      template: require('./default/formly-default.html'),
+      controller: function() {
+        let vm = this;
+        angular.extend(vm, {
+          userFields: [
+            {
+              key: 'email',
+              type: 'input',
+              templateOptions: {
+                type: 'email',
+                label: 'Email address',
+                placeholder: 'Enter email'
+              }
+            },
+            {
+              key: 'password',
+              type: 'input',
+              templateOptions: {
+                type: 'password',
+                label: 'Password',
+                placeholder: 'Password'
+              }
+            },
+            {
+              key: 'checked',
+              type: 'checkbox',
+              templateOptions: {
+                label: 'Check me out'
+              }
+            }
+          ],
+          title: 'The Formly Way',
+          submit: function() {
+            alert(JSON.stringify(vm.user));
+          }
+        });
+      },
+      controllerAs: 'formly'
+    }).state('formlyResolve', {
+      url: '/formly-resolve',
+      template: require('./default/formly-resolve.html'),
+      resolve: {
+        fieldData: function(formlyService) {
+          return formlyService.get('userFields');
+        }
+      },
+      controller: 'ResolveController',
+      controllerAs: 'resolve'
+    }).state('formlyPolymorphic', {
+      url: '/formly-polymorphic',
+      template: require('./default/formly-resolve.html'),
+      resolve: {
+        fieldData: function(formlyService) {
+          return formlyService.get('userFields');
+        }
+      },
+      controller: 'PolymorphicController',
+      controllerAs: 'resolve'
+    })
   }]);
 }

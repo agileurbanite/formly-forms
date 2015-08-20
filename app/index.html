@@ -7,8 +7,14 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body ng-app="app">
-  <h1>Angular + Webpack</h1>
-  <hello></hello>
+  <h1>Polymorphic Formly</h1>
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a ui-sref="default">Home</a></li>
+    <li role="presentation"><a ui-sref="formlyDefault">Formly Default</a></li>
+    <li role="presentation"><a ui-sref="formlyResolve">Formly Resolve</a></li>
+    <li role="presentation"><a ui-sref="formlyPolymorphic">Polymorphic Formly</a></li>
+  </ul>
+  <div ui-view></div>
   <script src="bundle.js"></script>
 </body>
 </html>
