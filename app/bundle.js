@@ -49189,6 +49189,15 @@
 	    set: function () {
 	      var deferred = $q.defer();
 	      var formFields = [{
+	        key: "email",
+	        type: "input",
+	        templateOptions: {
+	          type: "email",
+	          label: "Email address",
+	          placeholder: "Enter email",
+	          required: true
+	        }
+	      }, {
 	        key: "awesome",
 	        type: "input",
 	        modelOptions: {
@@ -49294,7 +49303,9 @@
 	    }
 	  });
 	  formlyService.set().then(function (data) {
-	    vm.userFields.push(data);
+	    vm.userFields = _.uniq(_.union(data, vm.userFields), function (item, key, a) {
+	      return item.key;
+	    });
 	  });
 	};
 
@@ -49406,7 +49417,7 @@
 	        });
 	      },
 	      controllerAs: "formly"
-	    }).state("formly-resolve", {
+	    }).state("formlyResolve", {
 	      url: "/formly-resolve",
 	      template: __webpack_require__(19),
 	      resolve: {
@@ -49416,7 +49427,7 @@
 	      },
 	      controller: "ResolveController",
 	      controllerAs: "resolve"
-	    }).state("formly-polymorphic", {
+	    }).state("formlyPolymorphic", {
 	      url: "/formly-polymorphic",
 	      template: __webpack_require__(19),
 	      resolve: {

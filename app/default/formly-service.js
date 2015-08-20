@@ -15,9 +15,8 @@ let formlyService = ($q, $timeout) => {
           key: 'password',
           type: 'input',
           templateOptions: {
-            type: 'password',
-            label: 'Password',
-            placeholder: 'Password'
+            label: 'Cool Stuff',
+            placeholder: 'Cool Stuff'
           }
         },
         {
