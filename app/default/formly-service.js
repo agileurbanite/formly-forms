@@ -104,6 +104,10 @@ let formlyService = ($q, $timeout) => {
             },
             label: 'One add-on on the right (icon)'
           }
+        },
+        {
+          key: 'text',
+          type: 'ipAddress'
         }
       ];
       $timeout(function() {

@@ -49171,9 +49171,8 @@
 	        key: "password",
 	        type: "input",
 	        templateOptions: {
-	          type: "password",
-	          label: "Password",
-	          placeholder: "Password"
+	          label: "Cool Stuff",
+	          placeholder: "Cool Stuff"
 	        }
 	      }, {
 	        key: "checked",
@@ -49253,6 +49252,9 @@
 	          },
 	          label: "One add-on on the right (icon)"
 	        }
+	      }, {
+	        key: "text",
+	        type: "ipAddress"
 	      }];
 	      $timeout(function () {
 	        deferred.resolve(formFields);
@@ -49357,9 +49359,27 @@
 	"use strict";
 
 	module.exports = function (ngModule, Angular) {
-	  ngModule.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", function ($stateProvider, $locationProvider, $urlRouterProvider) {
+	  ngModule.config(["$stateProvider", "$locationProvider", "$urlRouterProvider", "formlyConfigProvider", function ($stateProvider, $locationProvider, $urlRouterProvider, formlyConfigProvider) {
 	    //$locationProvider.html5Mode(true);
 	    // $locationProvider.hashPrefix('!');
+
+	    // set templates here
+	    formlyConfigProvider.setType({
+	      name: "ipAddress",
+	      "extends": "input",
+	      defaultOptions: {
+	        validators: {
+	          ipAddress: function ipAddress(viewValue, modelValue) {
+	            var value = modelValue || viewValue;
+	            return /(\d{1,3}\.){3}\d{1,3}/.test(value);
+	          }
+	        },
+	        templateOptions: {
+	          label: "IP Address",
+	          placeholder: "Enter a valid ipAddress!"
+	        }
+	      }
+	    });
 
 	    $urlRouterProvider.otherwise("/");
 
