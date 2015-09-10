@@ -4,3 +4,10 @@ Angular Formly is a great library to create dynamic forms within the Angular Fra
 http://angular-formly.com/#/
 
 This repo doesn't hope to illustrate all of the features/examples that Angular Formly provides but a small subset to illustrate some of the dynamic abilities of creating a base form that can be extended 
+
+## Getting Started
+
+* npm install
+* webpack
+* npm start
+* open browser to localhost:8080
