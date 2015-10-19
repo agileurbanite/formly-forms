@@ -1,4 +1,4 @@
-# Polymorphic Forms with Formly
+# How to make forms suck less with Formly
 
 Angular Formly is a great library to create dynamic forms within the Angular Framework.  It has a host of features that can be found at:
 http://angular-formly.com/#/
