@@ -1,147 +1,190 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>How to Make Forms Suck Less with Formly</title>
+    <title>How to Make Forms Suck Less with Formly</title>
 
-		<meta name="description" content="How to Make Forms Suck Less with Formly">
-		<meta name="author" content="Patrick Woo">
+    <meta name="description" content="How to Make Forms Suck Less with Formly">
+    <meta name="author" content="Patrick Woo">
 
-		<meta name="apple-mobile-web-app-capable" content="yes" />
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.min.css">
-		<link rel="stylesheet" href="css/theme/default.css" id="theme">
-		<link rel="stylesheet" href = "http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/reveal.min.css">
+    <link rel="stylesheet" href="css/theme/default.css" id="theme">
+    <link rel="stylesheet" href = "http://slidifylibraries2.googlecode.com/git/inst/libraries/widgets/bootstrap/css/bootstrap.css">
 
-		<!-- For syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-		<script>
-			if( window.location.search.match( /print-pdf/gi ) ) {
-				var link = document.createElement( 'link' );
-				link.rel = 'stylesheet';
-				link.type = 'text/css';
-				link.href = 'css/print/pdf.css';
-				document.getElementsByTagName( 'head' )[0].appendChild( link );
-			}
-		</script>
+    <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+    <script>
+      if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+      }
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
+    <div class="reveal">
 
-			<!-- Any section element inside of this container is displayed as a slide -->
-			<div class="slides">
-				<section>
-					<h2>How to Make Forms Suck Less with Formly</h2>
-					<p>
-						<small>By Patrick Woo <a href="http://github.com/agileurbanite" target="_blank">Agile Urbanite</a></small>
-					</p>
-				</section>
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h2>How to Make Forms Suck Less with Formly</h2>
+          <p>
+            <small>By Patrick Woo <a href="http://github.com/agileurbanite" target="_blank">Agile Urbanite</a></small>
+          </p>
+        </section>
 
-				<section>
-					<div class="span6">
-						<img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/5/005/096/1ae/2e9d9c7.jpg" alt="">
-					</div>
-					<div class="span6" style="text-align: left;">
-						<h3>About Me</h3>
-						<p>I am a software engineer at Capital One, that loves to find solutions to interesting problems.</p>
-					</div>
-				</section>
+        <section>
+          <div class="span6">
+            <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/5/005/096/1ae/2e9d9c7.jpg" alt="">
+          </div>
+          <div class="span6" style="text-align: left;">
+            <h3>About Me</h3>
+            <p>I am a software engineer at Capital One, that loves to find solutions to interesting problems.</p>
+          </div>
+        </section>
 
-				<section>
-					<h3>So, what is formly?</h3>
-					<section>
-						<p>Formly is an AngularJS module which makes working with forms more enjoyable.</p>
-					</section>
-					<section>
-						<ul>
-							<li>Simple</li>
-							<li>Maintainable</li>
-							<li>Consistent</li>
-						</ul>
-					</section>
-				</section>
+        <section>
+          <h3>So, what is formly?</h3>
+          <p>Formly is an angular module which makes working with forms more enjoyable.  It lets you configure your forms from your controller using JSON.</p>
+        </section>
 
-				<section>
-					<h3>Formly Example</h3>
-					<ul>
-						<li>Default Forms</li>
-						<li>Model Options</li>
-						<li>Promised Based Forms</li>
-						<li>Custom templates</li>
-						<li>Custom types</li>
-					</ul>
-				</section>
+        <section>
+          <h3>Why formly?</h3>
+          <ul>
+            <li>JSON Powered Forms</li>
+            <li>DRY Templates</li>
+            <li>Easy to use and maintain</li>
+          </ul>
+        </section>
 
-				<section>
-					<h3>Why polymorphic forms?</h3>
-					<p>Working in a large team that are scattered across geo-locations, it's best to create a base form that can be inherited, extended, or overwritten.  Formly provides just that as form elements can be results of promises.</p>
-				</section>
+        <section>
+          <section>
+            <h3>Change This:</h3>
+            <div style="font-size:20px;">
+              <pre><code class="hljs" data-trim content-editable>
+<div class="edit">
+  <form name="editForm" data-ng-submit="edit.submit()">
+    <div class="form-group" ng-class="{'has-error': editForm.username.$touched && editForm.username.$invalid }">
+      <label for="username">Username</label>
+      <input name="username" class="form-control" id="username" type="text" data-ng-model="edit.model.username" placeholder="Username" ng-required="true" ng-minlength="2" ng-pattern="/^a-zA-Z*$/">
+    </div>
+    <div class="form-group" ng-class="{'has-error': editForm.rank.$touched && editForm.rank.$invalid }">
+      <label for="rank">Rank</label>
+      <input name="rank" id="rank" type="text" data-ng-model="edit.model.rank" placeholder="Rank" ng-required="true" ng-pattern="/^a-zA-Z*$/">
+    </div>
+    <div>
+    <label data-ng-repeat="btype in edit.model.type">
+      <input id="{{btype}}" type="checkbox" checklist-model="edit.user.roles" checklist-value="btype"> {{btype}}
+    </label>
+    </div>
+    <div class="form-group" ng-class="{'has-error': editForm.tribe.$touched && editForm.tribe.$invalid }">
+      <label for="tribe">Tribe</label>
+      <input name="tribe" id="tribe" type="text" data-ng-model="edit.model.tribe" placeholder="Tribe" ng-minlength="2" ng-required="true">
+    </div>
+    <div class="form-group" ng-class="{'has-error': editForm.catchphrase.$touched && editForm.catchphrase.$invalid }">
+      <label for="catchphrase">Catchphrase</label>
+      <input name="catchphrase" id="catchphrase" type="text" data-ng-model="edit.model.catchphrase" placeholder="Catchphrase" ng-required="true">
+    </div>
+    <div class="checkbox">
+    <label data-ng-repeat="power in edit.model.powers">
+      <input id="{{power}}" type="checkbox" checklist-model="edit.user.powers" checklist-value="power"> {{power}}
+    </label>
+    </div>
+    <button data-ng-click="edit.cancel(edit.model.id)">Cancel</button>
+    <button type="submit">Submit</button>
+  </form>
+</div>
+              </code></pre>
+            </div>
+          </section>
+          <section>
+            <h3>To This:</h3>
+              <pre><code class="hljs" data-trim content-editable>
+<div class="edit">
+  <form name="formlyForm" data-ng-submit="formly.submit()">
+    <formly-form model="formly.model" fields="formly.fields" form="formlyForm">
+      <button data-ng-click="formly.cancel(formly.model.id)">Cancel</button>
+      <button type="submit">Submit</button>
+    </formly-form>
+  </form>
+</div>
+              </code></pre>
+          </section>
+        </section>
 
-				<section>
-					<h3>Questions?</h3>
-					<h4>Thanks to <a href="https://github.com/kentcdodds" target="_blank">Kent C. Dodds</a> for his help and for actively maintaining such an awesome tool!</h4>
-					<ul>
-						<li>
-							<a href="http://git.io/vsc1e" target="_blank">Deck | http://git.io/vsc1e</a>
-						</li>
-						<li>
-							<a href="https://github.com/agileurbanite/polymorphic-forms" target="_blank">Formly Example</a>
-						</li>
-						<li>
-							<a href="http://angular-formly.com/#/" target="_blank">Angular Formly Site with Examples</a>
-						</li>
-					</ul>
-				</section>
+        <section>
+          <h1>Time to see some Code!</h1>
+        </section>
 
-			</div>
+        <section>
+          <h3>Questions?</h3>
+          <h4>Thanks to <a href="https://github.com/kentcdodds" target="_blank">Kent C. Dodds</a> for his help and for actively maintaining such an awesome tool!</h4>
+          <ul>
+            <li>
+              <a href="http://git.io/vsc1e" target="_blank">Deck | http://git.io/vsc1e</a>
+            </li>
+            <li>
+              <a href="https://github.com/agileurbanite/polymorphic-forms" target="_blank">Formly Example</a>
+            </li>
+            <li>
+              <a href="http://angular-formly.com/#/" target="_blank">Angular Formly Site with Examples</a>
+            </li>
+          </ul>
+        </section>
 
-		</div>
+      </div>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.min.js"></script>
+    </div>
 
-		<script>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
 
-			// Full list of configuration options available here:
-			// https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+    <script>
 
-				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
-				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-				// Parallax scrolling
-				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
-				// parallaxBackgroundSize: '2100px 900px',
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
-				// Optional libraries used to extend on reveal.js
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-				]
-			});
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
 
-		</script>
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
 
-	</body>
+    </script>
+
+  </body>
 </html>

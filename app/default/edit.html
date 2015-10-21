@@ -1,0 +1,32 @@
+<div class="edit">
+  <form name="editForm" data-ng-submit="edit.submit()">
+    <div class="form-group" ng-class="{'has-error': editForm.username.$touched && editForm.username.$invalid }">
+      <label for="username">Username</label>
+      <input name="username" class="form-control" id="username" type="text" data-ng-model="edit.model.username" placeholder="Username" ng-required="true" ng-minlength="2" ng-pattern="/^a-zA-Z*$/">
+    </div>
+    <div class="form-group" ng-class="{'has-error': editForm.rank.$touched && editForm.rank.$invalid }">
+      <label for="rank">Rank</label>
+      <input name="rank" id="rank" type="text" data-ng-model="edit.model.rank" placeholder="Rank" ng-required="true" ng-pattern="/^a-zA-Z*$/">
+    </div>
+    <div>
+      <label data-ng-repeat="btype in edit.model.type">
+        <input id="{{btype}}" type="checkbox" checklist-model="edit.user.roles" checklist-value="btype"> {{btype}}
+      </label>
+    </div>
+    <div class="form-group" ng-class="{'has-error': editForm.tribe.$touched && editForm.tribe.$invalid }">
+      <label for="tribe">Tribe</label>
+      <input name="tribe" id="tribe" type="text" data-ng-model="edit.model.tribe" placeholder="Tribe" ng-minlength="2" ng-required="true">
+    </div>
+    <div class="form-group" ng-class="{'has-error': editForm.catchphrase.$touched && editForm.catchphrase.$invalid }">
+      <label for="catchphrase">Catchphrase</label>
+      <input name="catchphrase" id="catchphrase" type="text" data-ng-model="edit.model.catchphrase" placeholder="Catchphrase" ng-required="true">
+    </div>
+    <div class="checkbox">
+      <label data-ng-repeat="power in edit.model.powers">
+        <input id="{{power}}" type="checkbox" checklist-model="edit.user.powers" checklist-value="power"> {{power}}
+      </label>
+    </div>
+    <button data-ng-click="edit.cancel(edit.model.id)">Cancel</button>
+    <button type="submit">Submit</button>
+  </form>
+</div>

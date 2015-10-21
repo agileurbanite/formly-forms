@@ -1,0 +1,35 @@
+.addressbook .row ul {
+  list-style: none;
+  padding: 0; }
+  .addressbook .row ul li {
+    border: 1px solid #fff;
+    cursor: pointer;
+    padding: 10px; }
+    .addressbook .row ul li img {
+      float: left; }
+    .addressbook .row ul li h2 {
+      text-transform: capitalize; }
+    .addressbook .row ul li:hover {
+      border: 1px solid #333; }
+
+.profile .row {
+  position: relative; }
+  .profile .row h1 {
+    text-transform: capitalize; }
+  .profile .row ul li p {
+    font-weight: bold; }
+    .profile .row ul li p span {
+      font-weight: normal;
+      text-transform: capitalize; }
+
+.edit {
+  background: #fff;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%; }
+  .edit form div {
+    margin: 1em 0; }
+    .edit form div.checkbox label {
+      display: block;
+      margin: 1em; }
