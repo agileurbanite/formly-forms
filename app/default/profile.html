@@ -1,0 +1,30 @@
+<div class="container profile">
+  <div class="row">
+    <h1 data-ng-bind="profile.character.username"></h1>
+    <ul>
+      <li>
+        <p>Rank: <span data-ng-bind="profile.character.rank"></span> </p>
+      </li>
+      <li>
+        <p>Type: <span data-ng-bind="profile.character.type"></span></p>
+      </li>
+      <li>
+        <p>Tribe: <span data-ng-bind="profile.character.tribe"></span></p>
+      </li>
+      <li>
+        <p>Catchphrase: <span data-ng-bind="profile.character.catchphrase"></span></p>
+      </li>
+      <li>
+        <p>
+          Powers:
+          <ul>
+            <li data-ng-repeat="power in profile.character.powers" data-ng-bind="power"></li>
+          </ul>
+        </p>
+      </li>
+    </ul>
+    <button data-ng-click="profile.edit(profile.character.id)">Edit Profile</button>
+    <button data-ng-click="profile.formly(profile.character.id)">Formly</button>
+    <div ui-view></div>
+  </div>
+</div>

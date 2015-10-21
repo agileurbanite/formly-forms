@@ -1,6 +1,6 @@
 export default (ngModule, Angular) => {
   ngModule.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', 'formlyConfigProvider',
-    function($stateProvider, $locationProvider, $urlRouterProvider, formlyConfigProvider) {
+    function($stateProvider, $locationProvider, $urlRouterProvider, formlyConfigProvider, $state) {
     //$locationProvider.html5Mode(true);
     // $locationProvider.hashPrefix('!');
 
@@ -24,84 +24,187 @@ export default (ngModule, Angular) => {
 
     $urlRouterProvider.otherwise('/');
 
-    $stateProvider.state('default', {
+    $stateProvider
+    .state('default', {
       url: '/',
       template: require('./default/default.html'),
-      controller: function() {
+      resolve: {
+        charactersData: function(formlyService) {
+          return formlyService.get();
+        }
+      },
+      controller: function($state, charactersData) {
         let vm = this;
         angular.extend(vm, {
-          user: {
-            email: '',
-            password: '',
-            checked: false
-          },
-          title: 'This is the default way to do forms',
-          submit: function() {
-            alert(JSON.stringify(vm.user));
+          characters: charactersData,
+          viewProfile: function(id) {
+            $state.go('profile', {
+              id: id
+            });
           }
         });
       },
       controllerAs: 'default'
-    }).state('formlyDefault', {
-      url: '/formly-default',
-      template: require('./default/formly-default.html'),
-      controller: function() {
+    })
+    .state('profile', {
+      url: '/profile/:id',
+      template: require('./default/profile.html'),
+      resolve: {
+        characterData: function(formlyService, $stateParams) {
+          return formlyService.getCharacterById($stateParams.id);
+        }
+      },
+      controller: function($state, characterData) {
         let vm = this;
         angular.extend(vm, {
-          userFields: [
-            {
-              key: 'email',
-              type: 'input',
-              templateOptions: {
-                type: 'email',
-                label: 'Email address',
-                placeholder: 'Enter email'
-              }
-            },
-            {
-              key: 'password',
-              type: 'input',
-              templateOptions: {
-                type: 'password',
-                label: 'Password',
-                placeholder: 'Password'
-              }
-            },
-            {
-              key: 'checked',
-              type: 'checkbox',
-              templateOptions: {
-                label: 'Check me out'
-              }
-            }
-          ],
-          title: 'The Formly Way',
-          submit: function() {
-            alert(JSON.stringify(vm.user));
+          character: characterData[0],
+          edit: function(id) {
+            $state.go('edit', {
+              id: id
+            });
+          },
+          formly: function(id) {
+            $state.go('formly', {
+              id: id
+            });
           }
         });
       },
+      controllerAs: 'profile'
+    })
+    .state('edit', {
+      url: '/edit/:id',
+      parent: 'profile',
+      template: require('./default/edit.html'),
+      controller: function($state, characterData) {
+        let vm = this;
+        angular.extend(vm, {
+          model: characterData[0],
+          user: {
+            roles: angular.copy(characterData[0].type),
+            powers: angular.copy(characterData[0].powers)
+          },
+          cancel: function(id) {
+            $state.go('^');
+          },
+          submit: function() {
+            vm.model.type = vm.user.roles;
+            vm.model.powers = vm.user.powers;
+            console.log(vm.model);
+            $state.go('^');
+          }
+        });
+      },
+      controllerAs: 'edit'
+    })
+    .state('formly', {
+      url: '/formly/:id',
+      parent: 'profile',
+      template: require('./default/formly.html'),
+      controller: function($state, characterData) {
+        console.log(characterData);
+        let vm = this,
+          charData = characterData[0];
+        angular.extend(vm, {
+          model: {},
+          fields: [
+            {
+              key: 'username',
+              type: 'input',
+              id: 'username',
+              defaultValue: charData.username,
+              templateOptions: {
+                type: 'text',
+                label: 'Username',
+                placeholder: 'Username',
+                required: true,
+                minlength: 3,
+                focus: true
+              }
+            },
+            {
+              key: 'rank',
+              type: 'input',
+              id: 'rank',
+              defaultValue: charData.rank,
+              templateOptions: {
+                type: 'text',
+                label: 'Rank',
+                placeholder: 'Rank',
+                required: true
+              }
+            },
+            {
+              key: 'type',
+              type: 'multiCheckbox',
+              defaultValue: charData.type,
+              templateOptions: {
+                label: 'Type',
+                options: [],
+                valueProp: 'type',
+                labelProp: 'type'
+              },
+              controller: ($scope) => {
+                var types = _.map(charData.type, function(n) {
+                  var type = {};
+                  type.type = n;
+                  return type;
+                });
+                $scope.to.options = types;
+              }
+            },
+            {
+              key: 'tribe',
+              type: 'input',
+              id: 'tribe',
+              templateOptions: {
+                type: 'text',
+                label: 'Tribe',
+                placeholder: 'Tribe',
+                required: true
+              }
+            },
+            {
+              key: 'catchphrase',
+              type: 'input',
+              id: 'catchphrase',
+              templateOptions: {
+                type: 'text',
+                label: 'Catchphrase',
+                placeholder: 'Catchphrase',
+                required: true
+              }
+            },
+            {
+              key: 'power',
+              type: 'multiCheckbox',
+              defaultValue: charData.powers,
+              templateOptions: {
+                label: 'Powers',
+                options: [],
+                valueProp: 'power',
+                labelProp: 'power'
+              },
+              controller: ($scope) => {
+                var powers = _.map(charData.powers, function(n) {
+                  var power = {};
+                  power.power = n;
+                  return power;
+                });
+                $scope.to.options = powers;
+              }
+            }
+          ],
+          cancel: function() {
+            $state.go('^');
+          },
+          submit: function() {
+            console.log(vm.model);
+            // $state.go('^');
+          }
+        })
+      },
       controllerAs: 'formly'
-    }).state('formlyResolve', {
-      url: '/formly-resolve',
-      template: require('./default/formly-resolve.html'),
-      resolve: {
-        fieldData: function(formlyService) {
-          return formlyService.get('userFields');
-        }
-      },
-      controller: 'ResolveController',
-      controllerAs: 'resolve'
-    }).state('formlyPolymorphic', {
-      url: '/formly-polymorphic',
-      template: require('./default/formly-resolve.html'),
-      resolve: {
-        fieldData: function(formlyService) {
-          return formlyService.get('userFields');
-        }
-      },
-      controller: 'PolymorphicController',
-      controllerAs: 'resolve'
     })
   }]);
 }

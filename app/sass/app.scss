@@ -1,0 +1,60 @@
+@import "../../public/lib/susy/sass/susy";
+.addressbook {
+  .row {
+    ul {
+      list-style: none;
+      padding: 0;
+      li {
+        border: 1px solid #fff;
+        cursor: pointer;
+        padding: 10px;
+        img {
+          float: left;
+        }
+        h2 {
+          text-transform: capitalize;
+        }
+        &:hover {
+          border: 1px solid #333;
+        }
+      }
+    }
+  }
+}
+.profile {
+  .row {
+    position: relative;
+    h1 {
+      text-transform: capitalize;
+    }
+    ul {
+      li {
+        p {
+          font-weight: bold;
+          span {
+            font-weight: normal;
+            text-transform: capitalize;
+          }
+        }
+      }
+    }
+  }
+}
+.edit {
+  background: #fff;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  form {
+    div {
+      margin: 1em 0;
+      &.checkbox {
+        label {
+          display: block;
+          margin: 1em;
+        }
+      }
+    }
+  }
+}

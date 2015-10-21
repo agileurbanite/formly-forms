@@ -1,0 +1,8 @@
+<div class="edit">
+  <form name="formlyForm" data-ng-submit="formly.submit()">
+    <formly-form model="formly.model" fields="formly.fields" form="formlyForm">
+      <button data-ng-click="formly.cancel(formly.model.id)">Cancel</button>
+      <button type="submit">Submit</button>
+    </formly-form>
+  </form>
+</div>
